@@ -1,0 +1,33 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.11'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.demo'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web' // 스프링부트 스타터
+  implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0' // 스프링부트와 마이바티스 연결
+	implementation 'org.postgresql:postgresql' // DB
+	compileOnly 'org.projectlombok:lombok' // 롬복 (implementation 으로 1개만 추가시 에러 발생)
+	annotationProcessor 'org.projectlombok:lombok' // 롬복
+	
+	developmentOnly 'org.springframework.boot:spring-boot-devtools' // 재기동 불필요 
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' // 스프링부트 테스트
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

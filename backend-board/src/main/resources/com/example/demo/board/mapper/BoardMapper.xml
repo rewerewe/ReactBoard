@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.board.data.BoardDao">
+  
+  <select id="selectBoard" resultType="BoardDto">
+    SELECT
+      ID
+      ,USERNAME
+      ,TITLE
+      ,CONTENT
+      ,HIT
+      ,REGEXP_REPLACE(SUBSTR(BOARD_INFO.INSDT, 0, 9), '(.{4})(.{2})(.{2})','\1-\2-\3') AS INSDT
+    FROM
+      BOARD_INFO
+    ORDER BY ID DESC
+  </select>
+
+  <select id="detailBoard" parameterType="int" resultType="BoardDto">
+    SELECT 
+      TITLE 
+      ,USERNAME
+      ,CONTENT
+      ,REGEXP_REPLACE(SUBSTR(BOARD_INFO.UPDDT, 0, 9), '(.{4})(.{2})(.{2})','\1-\2-\3') AS UPDDT
+    FROM 
+      BOARD_INFO
+    WHERE 
+      1=1 
+    AND
+      ID = #{id}
+  </select>
+
+  <insert id="insertBoard" parameterType="BoardDto">
+    INSERT INTO BOARD_INFO (
+      TITLE 
+      ,USERNAME 
+      ,CONTENT
+      ,HIT
+      ,INSDT
+      ,UPDDT
+    ) VALUES (
+      #{title}
+      ,#{username}
+      ,#{content}
+      ,#{hit}
+      ,TO_CHAR(now(), 'YYYYMMDDHH24MISS')
+      ,TO_CHAR(now(), 'YYYYMMDDHH24MISS')
+    )
+  </insert>
+
+  <update id="updateBoard" parameterType="BoardDto">
+    UPDATE
+      BOARD_INFO 
+    SET
+      USERNAME = #{username}
+      ,TITLE = #{title}
+      ,CONTENT = #{content}
+      ,HIT = #{hit}
+      ,UPDDT = TO_CHAR(now(), 'YYYYMMDDHH24MISS')
+    WHERE 1=1
+    AND 
+      ID = #{id}
+  </update>
+
+  <delete id="deleteBoard" parameterType="int">
+    DELETE 
+      FROM BOARD_INFO
+    WHERE 1=1
+    AND 
+      ID = #{id}
+  </delete>
+  
+  <update id="updateHit" parameterType="BoardDto">
+    UPDATE 
+      BOARD_INFO
+    SET 
+      HIT = 
+        (
+          SELECT 
+            HIT
+          FROM 
+            BOARD_INFO
+          WHERE 1=1
+          AND ID = #{id}
+          ORDER BY ID DESC
+        ) + 1
+    WHERE 1=1
+    AND 
+      ID = #{id}
+  </update>
+</mapper>

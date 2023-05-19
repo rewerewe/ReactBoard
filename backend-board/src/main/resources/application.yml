@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: dev
+server:
+  port: 80
+logging: # logging
+  file:
+    name: /dev/workspace/demo/log/demo.log
+    max-history: 60
+    max-size: 1MB
+  logback:
+    rollingpolicy:
+      file-name-pattern: /dev/workspace/demo/log/demo.%d{yyyy-MM-dd}.%i.log
+  pattern:
+    console: '%clr(%d{yyyy-MM-dd_HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n'
+    file: '%d{yyyy-MM-dd_HH:mm:ss.SSS} %-5level : %logger{50}.%M:%-4line - %msg%n'
+  level:
+    root: info
+    com:
+      example: debug
+    org:
+      apache:
+        http:
+          wire: debug
+        tomcat:
+          util:
+            http: info

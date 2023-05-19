@@ -1,0 +1,222 @@
+.cursorPointer {
+	cursor: pointer;
+}
+
+.root {
+	width: 800px;
+	margin: 0 auto;
+}
+
+nav {
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+}
+
+textarea {
+	width: 100%;
+	resize: none;
+}
+
+input {
+	padding: 5px;
+}
+
+.table {
+	margin: 70px 0;
+}
+
+.table .btn-wrap-cen {
+	text-align: center;
+}
+
+.table .btn-wrap-rgt {
+	text-align: right;
+}
+
+/* 목록 */
+.boardList {
+	width: 800px;
+	max-height: 800px;
+	margin: 0 auto;
+	line-height: 40px;
+	text-align: center;
+}
+.boardList th,
+.boardList td {
+	border-bottom: 1px solid #ededed;
+}
+
+/* 페이징 */
+/* .table nav ul.page-ul {
+	float: left;
+	list-style: none;
+	text-align: center;
+	border-radius: 3px;
+	color: white;
+	padding: 1px;
+	border-top: 3px solid #186ead;
+	border-bottom: 3px solid #186ead;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.table nav li.page-li {
+	display: inline-block;
+	font-size: 17px;
+	font-weight: 600;
+	padding: 5px;
+	border-radius: 7px;
+	width: 25px;
+	cursor: pointer;
+	color: 555;
+	background-color: white;
+}
+
+.table nav li.page-li:hover {
+	color: white;
+	background-color: #263a6c;
+}
+
+.table nav li.page-li:focus::after {
+	color: white;
+	background-color: #263a6c;
+}
+
+.table nav span.page-span:hover::after,
+.table nav span.page-span:focus::after {
+	border-radius: 100%;
+	color: white;
+	background-color: #263a6c;
+} */
+
+/* .pagination {
+	width: 50%;
+	height: 32px;
+}
+
+nav ul.pagination {
+	float: left;
+	list-style: none;
+	text-align: center;
+	border-radius: 7px;
+	color: #555;
+	padding: 1px;
+	border: solid 1px #dedede;
+}
+
+nav ul.pagination li {
+	display: inline-block;
+	font-size: 17px;
+	font-weight: 600;
+	padding: 5px;
+	border-radius: 5px;
+	width: 25px;
+}
+
+nav ul.pagination li:hover {
+	cursor: pointer;
+	color: white;
+	background-color: #263a6c;
+}
+
+nav ul.pagination li:focus,
+nav ul.pagination li::after {
+	color: white;
+	background-color: #263a6c;
+}
+
+nav ul.pagination .span:hover,
+nav ul.pagination .span::after,
+nav ul.pagination .span:focus,
+nav ul.pagination .span::after {
+	border-radius: 100%;
+	color: white;
+	background-color: #263a6c;
+} */
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+ul.pagination li {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #e2e2e2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1rem;
+}
+
+ul.pagination li:first-child {
+	border-radius: 5px 0 0 5px;
+}
+
+ul.pagination li:last-child {
+	border-radius: 0 5px 5px 0;
+}
+
+ul.pagination li a {
+	text-decoration: none;
+	color: #337ab7;
+	font-size: 1rem;
+}
+
+ul.pagination li.active a {
+	color: white;
+}
+
+ul.pagination li.active {
+	background-color: #337ab7;
+}
+
+ul.pagination li a:hover,
+ul.pagination li a.active {
+	color: blue;
+}
+
+.page-selection {
+	width: 48px;
+	height: 30px;
+	color: #337ab7;
+}
+
+/* 상세 */
+.boardDetail {
+	width: 800px;
+	max-height: 800px;
+	text-align: left;
+	margin: 0 auto;
+	line-height: 40px;
+}
+
+.boardDetail th,
+.boardDetail td {
+	border-bottom: 1px solid #ededed;
+}
+
+.boardDetail tr:last-child {
+	height: 400px;
+}
+
+.boardDetail textarea {
+	width: 585px;
+	height: 350px;
+}
+
+.boardDetail p {
+	text-align: center;
+}
+
+.required {
+	color: rgb(198, 68, 68);
+	margin-left: 10px;
+}
