@@ -3,131 +3,146 @@
 ---
 ### git 명령어 (기본) 
   현재 상태 확인
-	```
-	git statusㅎ
-	```
+```
+git status
+```
 <br>
-  프로젝트에 git 저장소 생성하기
-	```
-	git init
-	```
+  현재 프로젝트에 git 저장소 생성하기
+```
+git init
+```
 <br>
-  git 프로젝트 저장소 복제 및 다운로드 하기
-	```
-	git clone [git 주소]
-	```
-<br>
-  저장소에 코드 추가하기
-	```
-	git add 
-	```
-<br>
-  저장소에 커밋하기
-	```
-	git commit -m "[커밋 메시지]"
-	```
+  git 원격에 저장소 생성하기 연결하기
+```
+git remote add <name> <url>
+```
 <br>
   변경사항 원격서버 (git 서버)에 업로드 (push)
-	```
-	git push origin master/branch
-	```
+```
+git push <name>
+```
+<br>
+  git 프로젝트 저장소 복제 및 다운로드 하기
+```
+git clone <git url>
+```
+
+<br>
+  저장소에 수정 내용 전체 추가하기
+```
+git add .
+```
+<br>
+  저장소에 커밋하기
+```
+git commit -m "커밋 메시지"
+```
+<br>
+  변경사항 원격서버 (git 서버)에 업로드 (push)
+```
+git push origin master/branch
+```
 <br>
   원격 저장소의 변경내용 현재 디렉토리 내 프로젝트로 가져오기 (pull)
-	```
-	git pull
-	```
+```
+git pull
+```
 <br>
   바뀐 내용 비교하기
-	```
-	git diff [브랜치이름] [다른 브랜치이름]
-	```
+```
+git diff [브랜치이름] [다른 브랜치이름]
+```
 <br>
   파일 및 폴더 추가
-	```
-	git add .
-	```
+```
+git add .
+```
 <br>
-  원격(remote)에 push 하지 않을 ignore 파일 만들기 
-	1) .git 파일이 있는 폴더에서
-	2) .gitignore 파일 생성하기 
-	3) 생성된 ignore 파일에 무시할 파일 및 폴더를 아래처럼 추가 후 저장
-	```
-	## 폴더 무시
-	sample/
+  원격(remote)에 push 하지 않을 ignore 파일 만들기 <br> 
+	1) .git 파일이 있는 폴더에서 <br>
+	2) .gitignore 파일 생성하기 <br>
+	3) 생성된 ignore 파일에 무시할 파일 및 폴더를 아래처럼 추가 후 저장 <br>
+```
+### 폴더 무시
+sample/
 
-	## 파일 무시
-	sample.txt
-	
-	## 다음 확장자 전체 무시
-	*.exe
-	*.zip
-	```
+## 파일 무시
+sample.txt
+
+## 다음 확장자 전체 무시
+*.exe
+*.zip
+```
 <br>
 	4) gitignore 파일 작성 후 add > commit > push 하면 ignore 적용됨
-	```
-	git add .
-	git commit -m "ignore file & config"
-	git push origin master
-	```
+```
+git add .
+git commit -m "ignore file & config"
+git push origin master
+```
 <br>
 	5) 이미 commit 되어 기존 git 으로 관리되는 파일은 .gitignore 을 작성해도 반영되지 않음 
-       기존 chched 를 지우고 commit 해주기
-	   (git rm --chched 명령어는 add 된 영역에서 파일을 제거하고, local 영역에서 파일을 유지함)
-	```
-	## 파일이면
-	git rm --chched sample.txt
-	
-	## 전체 파일이면 
-	git rm --chched *.txt
-	
-	## 폴더라면
-	git rm --chched sample/ -r
-	```
+  <br>
+  → 기존 chched 를 지우고 commit 해주기 <br>
+	   (git rm --chched 명령어는 add 된 영역에서 파일을 제거하고, local 영역에서 파일을 유지함) <br>
+```
+## 파일이면
+git rm --chched sample.txt
+
+## 전체 파일이면 
+git rm --chched *.txt
+
+## 폴더라면
+git rm --chched sample/ -r
+```
+<br>
+
 ---
-#### git config 관련
-  전체 config 리스트 확인 
-	 ```
-	 git config --list
-	 ```
+#### git config 관련<br>
+
+전체 config 리스트 확인 
+```
+git config --list
+```
 <br>
-  git config 설정하기 
-	 ```
-	 git config --global user.name "홍길동"
-	 git config --global user.email "id@naver.com"
-	 ```
+git config 설정하기 
+```
+git config --global user.name "홍길동"
+git config --global user.email "id@naver.com"
+```
 <br>
-  git config 삭제하기 
-	 ```
-	 git config --unset user.name 
-	 git config --unset user.email 
-	 ```
+git config 삭제하기 
+```
+git config --unset user.name 
+git config --unset user.email 
+```
 <br>
-  git config 삭제해도 계속 남아있다면, global로 설정한 사용자 정보 삭제하기 
-	 ```
-	 git config --unset --global user.name 
-	 git config --unset --global user.email 
-	 ```
+git config 삭제해도 계속 남아있다면, global로 설정한 사용자 정보 삭제하기 
+```
+git config --unset --global user.name 
+git config --unset --global user.email 
+```
 ---
 #### Branch 관련
-  해당 브랜치로 이동
-	```
-	git checkout [브랜치명]
-	```
+해당 브랜치로 이동
+```
+git checkout [브랜치명]
+```
 <br>
-  원하는 브랜치로 이동
-	```
-	git branch [브랜치명]
-	```
+원하는 브랜치로 이동
+```
+git branch [브랜치명]
+```
 <br>
-  원하는 브랜치로 push 하여 원격 서버에 전송
-	```
-	git push origin [브랜치명]
-	```
+원하는 브랜치로 push 하여 원격 서버에 전송
+```
+git push origin [브랜치명]
+```
 <br>
-  모든 브랜치 확인
-	```
-	git brach -a
-	```
+모든 브랜치 확인
+```
+git brach -a
+```
 ---
 ### React 설치하기
 
