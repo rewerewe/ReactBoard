@@ -259,13 +259,13 @@ git brach -a
    5. 용법은 axios()함수를 호출할 때, url, method, data를 넘겨준다.
 
    ```
-   	axios({
-   	  url: 'localhost:4000', // 서버주소
-   	  method: 'get', // 통신방식 : get, post, put, patch, delete
-   	  data: { // 인자로 보낼 데이터
-   		age: '20'
-   	  }
-   	});
+	axios({
+	  url: 'localhost:4000', // 서버주소
+	  method: 'get', // 통신방식 : get, post, put, patch, delete
+	  data: { // 인자로 보낼 데이터
+		age: '20'
+	  }
+	});
    ```
 
    <br>
