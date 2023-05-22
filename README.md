@@ -1,59 +1,69 @@
 ## react-board
 
----
 ### git 명령어 (기본) 
   현재 상태 확인
+
 ```
 git status
 ```
 <br>
   현재 프로젝트에 git 저장소 생성하기
+
 ```
 git init
 ```
 <br>
   git 원격에 저장소 생성하기 연결하기
+
 ```
 git remote add <name> <url>
 ```
 <br>
   변경사항 원격서버 (git 서버)에 업로드 (push)
+
 ```
 git push <name>
 ```
 <br>
   git 프로젝트 저장소 복제 및 다운로드 하기
+
 ```
 git clone <git url>
 ```
 
 <br>
   저장소에 수정 내용 전체 추가하기
+
 ```
 git add .
 ```
 <br>
   저장소에 커밋하기
+
 ```
 git commit -m "커밋 메시지"
 ```
 <br>
   변경사항 원격서버 (git 서버)에 업로드 (push)
+
 ```
 git push origin master/branch
 ```
 <br>
   원격 저장소의 변경내용 현재 디렉토리 내 프로젝트로 가져오기 (pull)
+
 ```
 git pull
 ```
 <br>
   바뀐 내용 비교하기
+
 ```
 git diff [브랜치이름] [다른 브랜치이름]
 ```
 <br>
   파일 및 폴더 추가
+
 ```
 git add .
 ```
@@ -62,6 +72,7 @@ git add .
 	1) .git 파일이 있는 폴더에서 <br>
 	2) .gitignore 파일 생성하기 <br>
 	3) 생성된 ignore 파일에 무시할 파일 및 폴더를 아래처럼 추가 후 저장 <br>
+
 ```
 ### 폴더 무시
 sample/
@@ -75,6 +86,7 @@ sample.txt
 ```
 <br>
 	4) gitignore 파일 작성 후 add > commit > push 하면 ignore 적용됨
+
 ```
 git add .
 git commit -m "ignore file & config"
@@ -85,6 +97,7 @@ git push origin master
   <br>
   → 기존 chched 를 지우고 commit 해주기 <br>
 	   (git rm --chched 명령어는 add 된 영역에서 파일을 제거하고, local 영역에서 파일을 유지함) <br>
+
 ```
 ## 파일이면
 git rm --chched sample.txt
@@ -101,23 +114,27 @@ git rm --chched sample/ -r
 #### git config 관련<br>
 
 전체 config 리스트 확인 
+
 ```
 git config --list
 ```
 <br>
 git config 설정하기 
+
 ```
 git config --global user.name "홍길동"
 git config --global user.email "id@naver.com"
 ```
 <br>
 git config 삭제하기 
+
 ```
 git config --unset user.name 
 git config --unset user.email 
 ```
 <br>
 git config 삭제해도 계속 남아있다면, global로 설정한 사용자 정보 삭제하기 
+
 ```
 git config --unset --global user.name 
 git config --unset --global user.email 
@@ -125,21 +142,25 @@ git config --unset --global user.email
 ---
 #### Branch 관련
 해당 브랜치로 이동
+
 ```
 git checkout [브랜치명]
 ```
 <br>
 원하는 브랜치로 이동
+
 ```
 git branch [브랜치명]
 ```
 <br>
 원하는 브랜치로 push 하여 원격 서버에 전송
+
 ```
 git push origin [브랜치명]
 ```
 <br>
 모든 브랜치 확인
+
 ```
 git brach -a
 ```
@@ -192,7 +213,7 @@ git brach -a
 
    1. 리액트는 사용자 인터페이스를 만들기 위한 자바스크립트 라이브러리다. 웹앱 view를 빠르게 만들수 있다.
    2. 리액트를 설치 후 실행해보면, index.html 과 src 폴더를 볼 수 있다.
-   3. 유저는 index.html 파일을 바라보게 되고, ReactDom가 컴포넌트를 html에 연결해준다.
+   3. 유저는 index.html 파일을 바라보게 되고, ReactDom 이 컴포넌트를 html에 연결해준다.
    4. 다시 정리하면, index.js의 ReactDom.render()로 <App> 컴포넌트가 index.html의 <div id="root">와 연결되는 구조다.
       <br>
 
@@ -217,7 +238,7 @@ git brach -a
 
    1. 리액트에는 라우터(경로 선택 프로세스) 내장기능이 없어 따로 모듈을 설치해주어야 한다.
    2. 브라우저에서 웹서버에 요청하여 css, javascript 받아 html 렌더링 하는 방식이 아닌,
-      링크 클릭으로 url을 업데이트 하여, ui를 즉시 렌더링 / 데이터만 업데이트 하는 방식이다.
+      링크 클릭으로 url을 업데이트 하여, UI를 즉시 렌더링 / 데이터만 업데이트 하는 방식이다.
    3. route 페이지 만들고 Link 로 url를 업데이트 할 수 있다
    4. react-router-dom 중 Outlet을 사용하면, 상위 경로에 선언해주며, 하위 경로가 렌더링 되면서
       중첩된 UI를 표시할 수 있다.
@@ -254,7 +275,7 @@ git brach -a
 
    1. HTTP 통신 라이브러리로, Promise 기반 이다.
    2. Promise 는 비동기 작업의 완료 및 실패를 나타내는 객체를 말한다.
-   3. HTTp 통신 라이브러리는 백엔드와 프론트엔드의 통신을 위해 사용하는 것.
+   3. HTTP 통신 라이브러리는 백엔드와 프론트엔드의 통신을 위해 사용하는 것.
    4. 자바스크립트에는 fetch 가 있고, 프레임워크에서 ajax 구현시에 axios 를 사용하곤 한다.
    5. 용법은 axios()함수를 호출할 때, url, method, data를 넘겨준다.
 
